@@ -81,7 +81,7 @@ formSend.addEventListener('click',(e) => {
             inputName.value ='';
             inputEmail.value ='';
             inputText.value ='';
-            overlay.firstChild.textContent = 'Спасибо, ваше сообщение отправлено мне на теллеграм'
+            overlay.firstChild.textContent = 'Thank you, your message has been sent to me on telegram'
             overlay.style.visibility = "visible";
         }
         else {
@@ -94,7 +94,7 @@ formSend.addEventListener('click',(e) => {
         overlay.style.visibility = "visible"
     })
 } else {
-    overlay.firstChild.textContent = 'Думаю, сначала стоит корректно заполнить форму. :-)'
+    overlay.firstChild.textContent = 'I think, the first step is to fill out the form correctly. :-)'
     overlay.style.visibility = "visible";
 }
     } catch (error) {
