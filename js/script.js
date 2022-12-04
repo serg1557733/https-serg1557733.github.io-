@@ -77,6 +77,7 @@ formSend.addEventListener('click',(e) => {
               },
             method: 'post',
             body: data,
+            mode: 'cors'
         }
           
     )
