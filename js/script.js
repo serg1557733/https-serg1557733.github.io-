@@ -61,34 +61,25 @@ $(document).ready(function(){
 });
 const inputName = document.getElementById('name');
 const inputEmail = document.getElementById('email');
+const inputText = document.getElementById('text');
 const overlay = document.querySelector('.overlay');
 const formSend = document.querySelector('.contacts__btn');
 formSend.addEventListener('click',(e) => {
     e.preventDefault()
-    if (inputName.value !='' && inputEmail.value !='' && inputEmail.value !='') 
+    if (inputName.value !='' && inputEmail.value !='' && inputText.value !='') 
     {
-       const data = JSON.stringify({name: inputName.value , email: inputEmail.value})
-       console.log(data)
-       $.ajax({
-        type: "POST",
-        url: 'https://telegramBank.serg1557733.repl.co',
-        data: {name: inputName.value , email: inputEmail.value}
-      });
-
-
-
-    //     fetch(,
-    //       { 
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //           },
-    //         method: 'post',
-    //         body: 
-    //         mode: 'no-cors'
-    //     }
+       const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
+        fetch( 'https://telegramBank.serg1557733.repl.co' ,
+          { 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+            method: 'post',
+            body: data,
+        }
           
-    // )
+    )
 }
 })
 
