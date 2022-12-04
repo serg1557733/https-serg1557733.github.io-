@@ -32,38 +32,65 @@ $(document).ready(function(){
     });
 
 
-    const form = document.getElementById('form');
-    form.addEventListener('submit',formSend);
+    // const form = document.getElementById('form');
 
-    async function formSend(e) {
-        e.preventDefault();
-      /*   console.log(FormData('form'));
-        let formData = form.dataset;  */
-        let response = await fetch('sendmail.php', {
-            method: 'POST',
-           /*  body: formData */
-        });
-        if (response.ok) {
-            let result = await response.json();
-            alert (result.messsage);
-            form.reset();
-        }
-        else {console.log('error send')
-    };
-    };
+    
+    // form.addEventListener('submit',formSend);
+
+      
+    
+
+    // async function formSend(e) {
+    //     e.preventDefault();       
+    //     const inputName = document.getElementById('name');
+    //     const inputEmail = document.getElementById('email');
+    //     let response = await fetch('https://botTelegram.serg1557733.repl.co/', 
+    //                 {
+    //                     method: 'POST',
+    //                     body: {formData: 111}
+    //                 }
+    //                   )
+    //     if (response.ok) {
+    //         let result = await response.json();
+    //         alert (result.messsage);
+    //         form.reset();
+    //     }
+    //     else {console.log('error send')
+    // };
+    // };
 });
 const inputName = document.getElementById('name');
 const inputEmail = document.getElementById('email');
 const overlay = document.querySelector('.overlay');
 const formSend = document.querySelector('.contacts__btn');
-formSend.addEventListener('click',() => {
+formSend.addEventListener('click',(e) => {
+    e.preventDefault()
     if (inputName.value !='' && inputEmail.value !='' && inputEmail.value !='') 
-    {overlay.classList.add('overlay_active')}
-});
+    {
+       const data = JSON.stringify({name: inputName.value , email: inputEmail.value})
+       console.log(data)
+       $.ajax({
+        type: "POST",
+        url: 'https://telegramBank.serg1557733.repl.co',
+        data: {name: inputName.value , email: inputEmail.value}
+      });
 
-document.addEventListener('scroll',()=>{
-    overlay.classList.remove('overlay_active')
-});
+
+
+    //     fetch(,
+    //       { 
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //           },
+    //         method: 'post',
+    //         body: 
+    //         mode: 'no-cors'
+    //     }
+          
+    // )
+}
+})
 
 /* const deadline = '2022-02-15';
 
