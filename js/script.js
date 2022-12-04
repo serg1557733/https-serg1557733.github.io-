@@ -31,42 +31,38 @@ $(document).ready(function(){
         $('body,html').animate({scrollTop: top}, 1500);
     });
 
-
-    // const form = document.getElementById('form');
-
-    
-    // form.addEventListener('submit',formSend);
-
-      
-    
-
-    // async function formSend(e) {
-    //     e.preventDefault();       
-    //     const inputName = document.getElementById('name');
-    //     const inputEmail = document.getElementById('email');
-    //     let response = await fetch('https://botTelegram.serg1557733.repl.co/', 
-    //                 {
-    //                     method: 'POST',
-    //                     body: {formData: 111}
-    //                 }
-    //                   )
-    //     if (response.ok) {
-    //         let result = await response.json();
-    //         alert (result.messsage);
-    //         form.reset();
-    //     }
-    //     else {console.log('error send')
-    // };
-    // };
 });
+
+
 const inputName = document.getElementById('name');
 const inputEmail = document.getElementById('email');
 const inputText = document.getElementById('text');
 const overlay = document.querySelector('.overlay');
+overlay.addEventListener('click', () => {
+    overlay.style.visibility = "hidden";
+})
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
 const formSend = document.querySelector('.contacts__btn');
+
+inputEmail.addEventListener('input', onInput);
+
+function isEmailValid(value) {
+    return EMAIL_REGEXP.test(value);
+}
+
+function onInput() {
+    if (isEmailValid(inputEmail.value)) {
+        inputEmail.style.borderColor = 'green';
+    } else {
+        inputEmail.style.borderColor = 'red';
+    }
+  }
+
 formSend.addEventListener('click',(e) => {
-    e.preventDefault()
-    if (inputName.value !='' && inputEmail.value !='' && inputText.value !='') 
+    try {
+            e.preventDefault()
+    if (inputName.value !='' && inputEmail.value !='' && inputText.value !='' && isEmailValid(inputEmail.value)) 
     {
        const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
         fetch( 'https://telegramBank.serg1557733.repl.co' ,
@@ -80,9 +76,35 @@ formSend.addEventListener('click',(e) => {
             mode: 'cors'
         }
           
-    )
+    ).then(res => {
+        if (res.status == 200) {
+            inputName.value ='';
+            inputEmail.value ='';
+            inputText.value ='';
+            overlay.firstChild.textContent = 'Спасибо, ваше сообщение отправлено мне на теллеграм'
+            overlay.style.visibility = "visible";
+        }
+        else {
+            overlay.style.visibility = "visible";
+        }
+    
+    })
+    .catch(er => {
+        console.log(er)
+        overlay.style.visibility = "visible"
+    })
+} else {
+    overlay.firstChild.textContent = 'Думаю, сначала стоит корректно заполнить форму. :-)'
+    overlay.style.visibility = "visible";
 }
+    } catch (error) {
+        console.log(error)
+    }
+
 })
+
+
+
 
 /* const deadline = '2022-02-15';
 
