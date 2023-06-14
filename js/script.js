@@ -22,16 +22,6 @@ skillsCounter.forEach((item, i) => {
     skillsBar[i].style.width = item.textContent;
 });
 
-//slow-scroll script 
-$(document).ready(function(){
-    $("#btns").on("click","a", function (event) {
-        event.preventDefault();
-        let id  = $(this).attr('href'),
-            top = $(id).offset().top;
-        $('body,html').animate({scrollTop: top}, 1500);
-    });
-
-});
 
 
 const inputName = document.getElementById('name');
@@ -40,6 +30,7 @@ const inputText = document.getElementById('text');
 const overlay = document.querySelector('.overlay');
 overlay.addEventListener('click', () => {
     overlay.style.visibility = "hidden";
+    
 })
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
