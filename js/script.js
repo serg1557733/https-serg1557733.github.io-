@@ -28,8 +28,10 @@ const inputName = document.getElementById('name');
 const inputEmail = document.getElementById('email');
 const inputText = document.getElementById('text');
 const overlay = document.querySelector('.overlay');
+
 overlay.addEventListener('click', () => {
     overlay.style.visibility = "hidden";
+    spinner.setAttribute('hidden', '');
     
 })
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -43,6 +45,7 @@ function isEmailValid(value) {
 }
 
 function onInput() {
+
     if (isEmailValid(inputEmail.value)) {
         inputEmail.style.borderColor = 'green';
     } else {
@@ -50,47 +53,54 @@ function onInput() {
     }
   }
 
+
+const spinner = document.getElementById("spinner");
+
+  
+
 formSend.addEventListener('click',(e) => {
-    try {
-            e.preventDefault()
-    if (inputName.value !='' && inputEmail.value !='' && inputText.value !='' && isEmailValid(inputEmail.value)) 
-    {
-       const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
-        fetch( 'https://telegramBank.serg1557733.repl.co' ,
-          { 
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-            method: 'post',
-            body: data,
-            mode: 'cors'
-        }
-          
-    ).then(res => {
-        if (res.status == 200) {
-            inputName.value ='';
-            inputEmail.value ='';
-            inputText.value ='';
-            overlay.firstChild.textContent = 'Thank you, your message has been sent to me on telegram'
+    try {   
+       
+        e.preventDefault()
+        spinner.removeAttribute('hidden');
+        overlay.style.visibility = "visible";
+        if (inputName.value !='' && inputEmail.value !='' && inputText.value !='' && isEmailValid(inputEmail.value)) {
+            overlay.firstElementChild.textContent = 'Sending...'
+            const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
+            fetch( 'https://telegramBank.serg1557733.repl.co' ,
+                { 
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'post',
+                    body: data,
+                    mode: 'cors'
+                }).then(res => {
+                    
+                    if (res.status == 200) {
+                        overlay.firstElementChild.textContent = 'Thank you, your message has been sent to me on telegram'
+                        inputName.value ='';
+                        inputEmail.value ='';
+                        inputText.value ='';
+                        overlay.style.visibility = "visible";
+                        spinner.setAttribute('hidden', '');
+                        
+                    } else {
+                            overlay.style.visibility = "visible";
+                    }
+                }).catch(er => {
+                    console.log(er)
+                    overlay.style.visibility = "visible"
+                })
+        } else {
+            overlay.firstElementChild.textContent = 'I think, the first step is to fill out the form correctly..'
             overlay.style.visibility = "visible";
         }
-        else {
-            overlay.style.visibility = "visible";
+        } catch (error) {
+                console.log(error)
+                spinner.setAttribute('hidden', '');
         }
-    
-    })
-    .catch(er => {
-        console.log(er)
-        overlay.style.visibility = "visible"
-    })
-} else {
-    overlay.firstChild.textContent = 'I think, the first step is to fill out the form correctly. :-)'
-    overlay.style.visibility = "visible";
-}
-    } catch (error) {
-        console.log(error)
-    }
 
 })
 

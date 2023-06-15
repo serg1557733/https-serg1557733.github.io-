@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@
     <section class="promo">
         <div class="hamburger"><span></span> <span class="long"></span> <span></span></div>
         <div class="container">
-            <h2 class="title title_fz20 promo__subtitle">My name is Sergey Borsch</h2>
+            <h2 class="title title_fz20 promo__subtitle">My name is Serhii Borshch</h2>
             <h1 class="title title_fz48">I am Frontend/Fullstack developer</h1>
             <div class="promo_btns" >
                 <a href="#portfolio" class="promo_link btn">Old projects</a>
@@ -91,13 +91,13 @@
                 <div class="about__photo"><img src="img/main_photo.jpg" alt="my foto"></div>
                 <div class="about__desc">
                     <h2 class="about__title title_fz16">ABOUT ME</h2>
-                    <div class="about__subtitle title">My name is Sergey</div>
+                    <div class="about__subtitle title">My name is Serhii</div>
                     <div class="divider divider_m0"></div>
                     <p class="about__text"> From the university I became interested in programming, but I had to work in
                         a different area - repairing and selling electronics, installing and configuring network
                         equipment. In 2020, I started studying html, css and js to make a website for my store and got
-                        carried away, took courses on JS, then studied at the A-Level school there, learned about React,
-                        worked with backing on Node js, MongoDB, state managers MobX, Redux, etc. Worked as a Fullstack
+                        carried away, took courses on JS, then studied at the A-Level school there, learned React,
+                        worked with backend with Express Node js, MongoDB, state managers MobX, Redux, etc. Worked as a Fullstack
                         developer.</p>
                 </div>
                 <div class="about__items">
@@ -198,8 +198,8 @@
                                     <div class="resume__item-desc">Kharkiv (01.2022-05.2022)</div>
                                 </div>
                                 <div class="resume__item-text">Trainee frontend/fullstack developer Technologies with
-                                    which I worked on the project: React.js, Node.js, MongoDB, Express js, Docker, web
-                                    sockets, typescript, Redux, MobX, REST APIs, etc</div>
+                                    which I worked on the project: React.js, Node.js (Express js), MongoDB, Docker, WebSocket
+                                    , Typescript, Redux, MobX, REST APIs, etc</div>
                             </div>
                         </li>
                         <li>
@@ -229,7 +229,7 @@
                 <div class="skills__item">
                     <div class="skills__icon"><img src="icons/skills/html5.svg" alt="html5"></div>
                     <div class="title title_fz14 skills__header">HTML5</div>
-                    <div class="skills__desc">It is he who creates the framework of your site or application.</div>
+                    <div class="skills__desc">It is he who creates the frame of your site or application.</div>
                 </div>
                 <div class="skills__item">
                     <div class="skills__icon"><img src="icons/skills/css3.svg" alt="html5"></div>
@@ -364,7 +364,7 @@
                     <h2 class="contacts__title title_fz16">Contacts</h2>
                     <div class="contacts__subtitle title">Get into contact with me</div>
                     <div class="divider divider_m0"></div><a class="promo_link btn" href="./deutschCV.docx"
-                        download>Download CV de (Lebenslauf 2023) </a>
+                        download>Download CV DE (Lebenslauf 2023) </a>
                     <div class="contacts__way title title_fz14mt25">In any way convenient for you:</div>
                     <div class="contacts__link-wrapper"><a href="viber://add?number=380939291223" target="_blank"
                             class="contacts__link"><img src="icons/social/viber.png" alt="viber"></a><a
@@ -372,9 +372,10 @@
                                 src="icons/social/telegram.svg" alt="telegram"></a><a
                             href="https://www.linkedin.com/in/serhiiborshch" target="_blank" class="contacts__link"><img
                                 src="icons/social/linkedin.svg" alt="linkedin"></a><a class="promo_link btn"
-                            href="BORSHCH.pdf" download>Download CV en</a></div>
-                    <div class="contacts__call title title_fz14mt20">Or leave your message and I will contact you:</div>
+                            href="BORSHCH.pdf" download>Download CV EN</a></div>
+                    <div class="contacts__call title title_fz14mt20">Or leave your message and I will contact with you:</div>
                     <form id="form" action="http://" method="POST" class="contacts__form">
+                        
                         <div class="contacts__input"><input id="name" name="name" required type="text"> <label
                                 for="name">Your name</label></div>
                         <div class="contacts__input"><input id="email" name='email' required type="email"> <label
@@ -384,18 +385,18 @@
                         <div class="contacts__btn-wrapper"><button type="submit" class="btn contacts__btn">Send a
                                 message</button></div>
                         <div class="contacts__policy"><input id="policy" required type="checkbox" class="policy">
-                            <span>I agree with <a href="/policy.html" target="_blank">privacy policy</a></span></div>
+                            <span>I agree with <a href="./policy.html" target="_blank">privacy policy</a></span></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <div hidden id="spinner"></div>
     <div class="overlay">
         <div class="overlay__form">An error occurred while submitting the form, please try again because the `backend`
             is on a free server and does not always respond the first time...or contact me via the links on social
             networks.</div>
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
