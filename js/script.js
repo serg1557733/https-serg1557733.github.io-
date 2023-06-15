@@ -32,6 +32,7 @@ const overlay = document.querySelector('.overlay');
 overlay.addEventListener('click', () => {
     overlay.style.visibility = "hidden";
     spinner.setAttribute('hidden', '');
+    document.body.style.overflow = "";
     
 })
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -64,6 +65,7 @@ formSend.addEventListener('click',(e) => {
         e.preventDefault()
         spinner.removeAttribute('hidden');
         overlay.style.visibility = "visible";
+        document.body.style.overflow = "hidden";
         if (inputName.value !='' && inputEmail.value !='' && inputText.value !='' && isEmailValid(inputEmail.value)) {
             overlay.firstElementChild.textContent = 'Sending...'
             const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
