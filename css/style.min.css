@@ -968,11 +968,11 @@ template {
 }
 
 .skills__header {
-    margin-top: 20px
+    margin-top: 10px
 }
 
 .skills__desc {
-    margin-top: 15px;
+    margin-top: 8px;
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
@@ -1077,7 +1077,7 @@ template {
     margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(4, 280px);
-    grid-template-rows: repeat(1, 280px);
+    grid-template-rows: repeat(2, 280px);
     gap: 5px
 }
 
@@ -1100,6 +1100,23 @@ template {
     grid-column: 3/4;
 }
 
+.portfolio__food img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+}
+.portfolio__food  {
+    grid-column: 3/6;
+}
+.portfolio__rec img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+}
+.portfolio__rec  {
+    grid-column: 4/6;
+}
+
 .portfolio__chat img {
     width: 90%;
     height: 100%;
@@ -1117,7 +1134,7 @@ template {
 
 }
 .portfolio__pulse {
-    grid-column: 4/6;
+    grid-column: 1/3;
 }
 
 .contacts {
@@ -1233,6 +1250,10 @@ template {
     font-size: 12px;
     line-height: 18px;
     background: #fff
+}
+
+.git__link {
+    margin-left: 25px;
 }
 
 #spinner:not([hidden]) {
@@ -1356,14 +1377,25 @@ template {
         grid-template-columns: repeat(3, 270px)
     }
 
+    
+    }
+     .portfolio__chat  {
+        grid-column: 1/3;
+    }
+    .portfolio__food  {
+        grid-column: 3/6;
+    }
     .portfolio__pulse {
-        grid-column: 2/4;
-        grid-row: 1
+     
+        grid-column: 1/3;
     }
-
-    .portfolio__plans {
-        grid-row: 2
+    .portfolio__rec  {
+        grid-column: 4/6;
     }
+    .portfolio__wp  {
+        grid-column: 3/4;
+   
+    
 
     .contacts__wrapper {
         grid-template-columns: 280px 485px;
@@ -1481,14 +1513,18 @@ template {
     .portfolio__wp {
         grid-column: auto
     }
-
-    .portfolio__uber img {
-        width: 100%
+    .portfolio__chat  {
+        grid-column: auto;
+        
     }
-
-    .portfolio__test {
-        grid-column: auto
+    .portfolio__food  {
+        grid-column: auto;
     }
+    .portfolio__rec  {
+        display: none;
+    }
+  
+
 
     .contacts__wrapper {
         grid-template-columns: 200px 470px;
