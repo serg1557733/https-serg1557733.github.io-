@@ -1188,7 +1188,7 @@ template {
 }
 
 .contacts__link-wrapper {
-    margin-top: 15px
+    margin-top: 25px
 }
 
 .contacts__form {
@@ -1320,15 +1320,16 @@ template {
 .overlay__form {
     position: absolute;
     z-index: 99;
-    padding: 10px;
+    padding: 20px;
+    border-radius:15px;
     top: 50%;
     left: 40%;
     width: 300px;
-    min-height: 120px;
-    border: solid red;
+    min-height: 20px;
+    border: solid #fdf035;
     text-align: center;
     color: #dcdcdc;
-    background-color: #000
+    background-color: #0e0d04
 }
 
 @media (max-width:1200px) {

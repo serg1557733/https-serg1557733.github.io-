@@ -67,7 +67,7 @@ formSend.addEventListener('click',(e) => {
         overlay.style.visibility = "visible";
         document.body.style.overflow = "hidden";
         if (inputName.value !='' && inputEmail.value !='' && inputText.value !='' && isEmailValid(inputEmail.value)) {
-            overlay.firstElementChild.textContent = 'Sending...'
+            overlay.firstElementChild.textContent = 'Sending... wait a moment'
             const data = JSON.stringify({name: inputName.value , email: inputEmail.value, text:inputText.value })
             fetch( 'https://telegramBank.serg1557733.repl.co' ,
                 { 
@@ -81,7 +81,7 @@ formSend.addEventListener('click',(e) => {
                 }).then(res => {
                     
                     if (res.status == 200) {
-                        overlay.firstElementChild.textContent = 'Thank you, your message has been sent to me on telegram'
+                        overlay.firstElementChild.textContent = 'Thank you, your message has been sent to me...'
                         inputName.value ='';
                         inputEmail.value ='';
                         inputText.value ='';
@@ -96,7 +96,7 @@ formSend.addEventListener('click',(e) => {
                     overlay.style.visibility = "visible"
                 })
         } else {
-            overlay.firstElementChild.textContent = 'I think, the first step is to fill out the form correctly..'
+            overlay.firstElementChild.textContent = 'Please fill in all fields correctly'
             overlay.style.visibility = "visible";
         }
         } catch (error) {
