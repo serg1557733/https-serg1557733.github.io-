@@ -958,13 +958,24 @@ template {
     display: grid;
     grid-template-columns: repeat(4, 270px);
     grid-template-rows: repeat(2, 270px);
-    gap: 13px
+    gap: 13px;
 }
+
+.element-animation {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+.element-animation.element-show {
+    opacity: 1;
+    transition: all 1s;
+    transform: translateY(0%);
+  }
 
 .skills__item {
     padding: 30px 30px 25px 30px;
-    border: 1px solid #000;
-    box-sizing: border-box
+    border: 2px solid #000;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .skills__header {
@@ -1082,7 +1093,8 @@ template {
 }
 
 .portfolio__item {
-    transition: .8s all
+    transition: .8s all;
+    border: 2px solid #fdf035;
 }
 
 .portfolio__item:hover {
