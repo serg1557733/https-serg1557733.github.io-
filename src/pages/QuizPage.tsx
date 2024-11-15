@@ -3,6 +3,7 @@ import { useState } from "react";
 import { questions } from "../data/quizQuestions";
 import euro from "../assets/img/4e.png";
 import mimi from "../assets/img/rt.webp";
+import cat from "../assets/img/katze.webp";
 import { LoginPageProps } from "../types/types";
 
 const QuizPage = ({ onLogin }: LoginPageProps) => {
@@ -67,10 +68,22 @@ const QuizPage = ({ onLogin }: LoginPageProps) => {
       </div>
 
       <div className="flex-col self-end m-4">
-        <div className={`w-48 ${rightAnswer ? "animate-bounce" : ""}`}>
-          {rightAnswer && <img src={mimi} alt="euro" />}
+        <div className={`w-48`}>
           <img src={euro} alt="euro" />
         </div>
+        {answered && (
+          <>
+            {rightAnswer ? (
+              <div className="w-48">
+                <img src={mimi} alt="euro" />
+              </div>
+            ) : (
+              <div className="w-80 left-1 absolute animate-bounce">
+                <img src={cat} alt="cat" />
+              </div>
+            )}
+          </>
+        )}
         <h2 className="p-4 border rounded-3xl border-l-amber-300 border-solid font-bold bg-red-600">
           Ваш счет: {score} Euro
         </h2>
