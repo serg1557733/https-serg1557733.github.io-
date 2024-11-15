@@ -1,4 +1,6 @@
-export const questions = [
+import { Questions } from "../types/types";
+
+export const questions: Questions = [
   {
     question: "Сколько сторон у правильного шестиугольника?",
     options: ["4", "5", "6", "7"],

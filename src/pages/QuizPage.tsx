@@ -2,10 +2,10 @@ import backgroundImage from "../assets/img/3.png";
 import { useState } from "react";
 import { questions } from "../data/quizQuestions";
 import euro from "../assets/img/4e.png";
-import { LoginProps } from "./LoginPage";
 import mimi from "../assets/img/rt.webp";
+import { LoginPageProps } from "../types/types";
 
-const QuizPage = ({ onLogin }: LoginProps) => {
+const QuizPage = ({ onLogin }: LoginPageProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(localStorage.getItem("balance") ?? 0);
   const [answered, setAnswered] = useState(false);
@@ -32,12 +32,10 @@ const QuizPage = ({ onLogin }: LoginProps) => {
       alert(`Игра завершена! Ваш счет: ${score}`);
     }
   };
-
   const { question, options } = questions[currentQuestionIndex];
 
   const rightAnswer = selectedAnswer === questions[currentQuestionIndex].answer;
 
-  if (answered) setTimeout(handleNextQuestion, 4000);
   return (
     <div
       style={{
@@ -60,7 +58,8 @@ const QuizPage = ({ onLogin }: LoginProps) => {
         <button
           className="bg-red-500 h-3/4 m-2"
           onClick={() => {
-            onLogin("");
+            localStorage.removeItem("balance");
+            onLogin(null);
           }}
         >
           EXIT

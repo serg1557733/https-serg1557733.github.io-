@@ -8,8 +8,9 @@ const App = () => {
     localStorage.getItem("auth")
   );
 
-  const handleTokenUpdate = (newToken: string) => {
-    localStorage.setItem("auth", newToken);
+  const handleTokenUpdate = (newToken: string | null) => {
+    if (!newToken) localStorage.removeItem("auth");
+    else localStorage.setItem("auth", newToken);
     setToken(newToken);
   };
   return (

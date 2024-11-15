@@ -1,15 +1,15 @@
 import { useState } from "react";
-export type LoginProps = {
-  onLogin: (token: string) => void;
-};
-const Login = ({ onLogin }: LoginProps) => {
+import { LoginPageProps } from "../types/types";
+import { LoginData } from "../data/data";
+
+const Login = ({ onLogin }: LoginPageProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "mykhailo" && password === "admin") {
-      localStorage.setItem("auth", "true");
-      onLogin("true");
+    if (username === LoginData.NAME && password === LoginData.PASSWORD) {
+      localStorage.setItem("auth", LoginData.NAME);
+      onLogin(LoginData.NAME);
     } else {
       alert("Неверные имя пользователя или пароль"); //test
     }
