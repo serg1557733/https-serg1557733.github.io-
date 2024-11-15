@@ -1,50 +1,20 @@
-# React + TypeScript + Vite
+Repository Overview
+Welcome to this repository! Below is a brief description of its purpose and the content available in its branches.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Branches
 
-Currently, two official plugins are available:
+1. dev (Main Branch)
+   The dev branch is the primary branch of this repository. It contains the source code for a game designed for children. This branch represents the current development efforts and the most up-to-date features of the project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Note: This branch is deployed automatically using GitHub Actions to ensure the latest version of the game is always available online.
 
-## Expanding the ESLint configuration
+2. master (Static Site)
+   The master branch holds a static website that was initially developed in 2020. This site was created as an educational project aimed at showcasing basic web development skills. It remains largely unchanged to preserve its original educational value.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Purpose and History
+dev: Active development focused on the children's game. This branch is set up for automatic deployment using GitHub Actions.
+master: A static educational project, serving as an example of web development practices from 2020.
+How to Navigate the Repository
+If you're interested in the current game for children, check out the dev branch.
+If you're looking for the static site created in 2020, refer to the master branch.
+Feel free to explore both branches and contribute if you'd like!
