@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LoginPageProps } from "../types/types";
+import DeviceMotionComponent from "./Device";
 
 const Login = ({ onLogin }: LoginPageProps) => {
   const [username, setUsername] = useState("");
@@ -52,6 +53,8 @@ const Login = ({ onLogin }: LoginPageProps) => {
 
         {errorMessage && <div>{errorMessage}</div>}
       </div>
+
+      <DeviceMotionComponent />
     </div>
   );
 };
