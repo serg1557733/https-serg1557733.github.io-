@@ -2,7 +2,6 @@ import backgroundImage from "../assets/img/3.png";
 import { useState } from "react";
 import { questions } from "../data/quizQuestions";
 import euro from "../assets/img/4e.png";
-import mimi from "../assets/img/rt.webp";
 import cat from "../assets/img/katze.webp";
 import { LoginPageProps } from "../types/types";
 

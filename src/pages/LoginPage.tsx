@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { LoginPageProps } from "../types/types";
-import { LoginData } from "../data/data";
 
 const Login = ({ onLogin }: LoginPageProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const defaultUser = import.meta.env.VITE_API_USER;
+  const defaultPass = import.meta.env.VITE_API_PASS;
   const handleLogin = () => {
-    if (username === LoginData.NAME && password === LoginData.PASSWORD) {
-      localStorage.setItem("auth", LoginData.NAME);
-      onLogin(LoginData.NAME);
+    if (username === defaultUser && password === defaultPass) {
+      localStorage.setItem("auth", defaultUser);
+      onLogin(defaultUser);
     } else {
       alert("Неверные имя пользователя или пароль"); //test
     }
