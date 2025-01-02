@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 
+const round = (num, precision) => {
+  const factor = Math.pow(10, precision);
+  return Math.round(num * factor) / factor;
+};
+
 const DeviceMotionComponent = () => {
   const [motionData, setMotionData] = useState<{
     accelerationX: number;
@@ -21,12 +26,12 @@ const DeviceMotionComponent = () => {
     const handleMotion = (event: DeviceMotionEvent) => {
       if (event.acceleration && event.rotationRate) {
         setMotionData({
-          accelerationX: event?.acceleration.x ?? 0,
-          accelerationY: event?.acceleration.y ?? 0,
-          accelerationZ: event?.acceleration.z ?? 0,
-          rotationRateAlpha: event?.rotationRate.alpha ?? 0,
-          rotationRateBeta: event?.rotationRate.beta ?? 0,
-          rotationRateGamma: event?.rotationRate.gamma ?? 0,
+          accelerationX: round(event.acceleration.x, 2) ?? 0,
+          accelerationY: round(event.acceleration.y, 2) ?? 0,
+          accelerationZ: round(event.acceleration.z, 2) ?? 0,
+          rotationRateAlpha: round(event?.rotationRate.alpha, 2) ?? 0,
+          rotationRateBeta: round(event?.rotationRate.beta, 2) ?? 0,
+          rotationRateGamma: round(event?.rotationRate.gamma, 2) ?? 0,
         });
       }
     };
