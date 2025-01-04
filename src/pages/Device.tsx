@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
-const round = (num, precision) => {
+const round = (num: number | null, precision: number) => {
   const factor = Math.pow(10, precision);
+  if (num === null) return 0;
   return Math.round(num * factor) / factor;
 };
 
@@ -64,8 +65,8 @@ const DeviceMotionComponent = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Device Motion</h1>
+    <div className="text-xs">
+      <p className="font-bold">Device Motion</p>
       <p>Acceleration X: {motionData.accelerationX}</p>
       <p>Acceleration Y: {motionData.accelerationY}</p>
       <p>Acceleration Z: {motionData.accelerationZ}</p>
